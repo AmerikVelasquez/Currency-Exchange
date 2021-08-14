@@ -2,3 +2,26 @@
 <head>
   <title>Currency Exchange</title>
 </head>
+
+<body>
+  <div class = "container">
+    <h1>Currency Exchange</h1>
+    <label>Converting from United States Dollar to:</label>
+    <form>
+      <label for="amount">Amount(in Dollars)</label><br>
+      <input type="text" id="amount" name="Amount"><br>
+    </form>
+    <select id = "option">
+      <option value = "PHP">Philippines(Philippine Peso)</option>
+      <option value = "JPY">Japan(Japanese Yen)</option>
+      <option value = "GBP">United Kingdon(Pound Sterling)</option>
+      <option value = "EGP">Egypt (Egyptian Pound)</option>
+      <option value = "PLN">Poland(Polish Zloty)</option>
+    </select>
+    <br>
+    <br>
+    <button type= "button" class = "btn btn-primary">submit</button>
+    <div id = "results"></div>
+    <div id = "errors"></div>
+  </div>
+</body>
