@@ -4,9 +4,9 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import './css/styles.css';
 import Exchange from './exchange.js';
 
-async function displayResults(response) {
+function displayResults(response) {
   if (response.result === 'success'){
-      $('div#results').prepend(`<br><h3>The amount you have in this country's currency is${await response.conversion_result}</h3>`);
+    $('div#results').prepend(`<br><h3>The amount you have in this country's currency is${response.conversion_result}</h3>`);
   } else {
     $('div#results').prepend(`<br><h3>This currency is not currently accessible or does not exist</h3>`);
   }
@@ -14,13 +14,12 @@ async function displayResults(response) {
 async function linkExchange(type, amount) {
   let response = 0;
   switch(type) {
-    case "PHP":
-    case "JPY":
-    case "GBP":
-    case "EGP":
-    case "PLN":
-      response = await Exchange.getExchange(type, amount);
-      console.log(response);
+  case "PHP":
+  case "JPY":
+  case "GBP":
+  case "EGP":
+  case "PLN":
+    response = await Exchange.getExchange(type, amount);
     displayResults(response);
   }
 }
@@ -30,5 +29,5 @@ $(document).ready(function(){
     let type = $('select#option').val();
     let amount =$('#amount').val();
     linkExchange(type, amount);
-  })
-})
+  });
+});
